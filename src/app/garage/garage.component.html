@@ -1,0 +1,75 @@
+<section>
+  <div class="background">
+    <img src="https://media.istockphoto.com/id/1210045819/vector/blue-glitter-geometric-abstract-circular-gradient-background.jpg?s=612x612&w=0&k=20&c=bceTf80ZCiF2f07cRa7NYv_XfSwRQIgSQgFl2u99PTw=" alt="">
+    <div class="cover">
+      <div class="navbar">
+        <button routerLink="/">GARAGE</button>
+        <button routerLink="/winners">WINNERS</button>
+    </div>
+    <div class="title">
+      <h1>Async</h1>
+      <h1>Race</h1>
+    </div>
+    <div class="top">
+      <div class="race">
+        <button (click)="race()">Race</button>
+        <button (click)="resetCars()">Reset</button>
+      </div>
+      <div class="create">
+        <input class="txt" type="text" [(ngModel)]="newBrandName" placeholder="Type Brand Name">
+        <input class="color" type="color" [(ngModel)]="newBrandColor" placeholder="Color">
+        <button (click)="createCar()">Create Car</button>
+      </div>
+      <div class="update">
+        <input class="txt" type="text" [(ngModel)]="updatedBrandName" placeholder="Type Brand Name">
+        <input class="color" type="color" [(ngModel)]="updatedBrandColor" placeholder="New Color">
+        <button (click)="updateCar()">Update</button>
+      </div>
+      <div>
+      <div class="brand">
+        <button (click)="generateBrands()">Generate Brands</button>
+      </div>
+      </div>
+    </div>
+    <div class="card-container" *ngIf="brands.length > 0">
+      <div class="card" *ngFor="let car of getCurrentPageBrands(); let i = index">
+        <div class="card-body">
+          <div class="brand-details">
+            <div class="buttons">
+              <div class="btn">
+                <button (click)="editCar(i)">Select</button>
+                <button (click)="removeCar(i)">Remove</button>
+              </div>
+              <div class="btn">
+                <button (click)="startMoving(i)" [disabled]="isCarMoving(i)">Start</button>
+                <button (click)="stopMoving(i)" [disabled]="!isCarMoving(i)">Stop</button>
+              </div>
+            </div>
+            <fa-icon [icon]="faCarSide" [style.color]="car.color"></fa-icon>
+            <div>
+              <h5 class="card-title">{{ car.name }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="pagination">
+        <button (click)="prevPage()">Previous</button>
+        <span>Page {{ currentPage }}</span>
+        <button (click)="nextPage()">Next</button>
+      </div>
+      
+      <div *ngIf="winnerName" class="winner-div">
+        <h2>WINNER:</h2>
+        <h3>{{ winnerName }}</h3>
+        <p>{{ getWinnerTime() }} seconds</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+

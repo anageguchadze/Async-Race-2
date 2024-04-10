@@ -1,0 +1,288 @@
+.background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.background {
+  position: relative;
+  width: 100%;
+  height: 900px;
+  text-align: center;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-left: 5%;
+  margin-top: 1%;
+}
+.navbar button{
+  background-color: rgba(239, 219, 251, 0.678);
+  border: none;
+  color: rgb(158, 103, 190);
+  transition: 1s;
+}
+.navbar button:hover{
+  background-color: rgba(233, 179, 244, 0.917);
+  transition: 1s;
+}
+.title{
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 8%;
+  margin-top: -8%;
+}
+.title h1{
+  font-size: 70px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgba(248, 120, 208, 0.939);
+}
+.top{
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin-left: 5%;
+}
+.race button{
+  border: none;
+  background-color: rgba(197, 244, 164, 0.956);
+  color: rgb(59, 155, 77);
+  transition: 1s;
+}
+.race button:hover{
+  background-color: rgba(90, 224, 12, 0.864);
+  transition: 1s;
+}
+.brand button{
+  border: none;
+  background-color: rgba(197, 244, 164, 0.956);
+  color: rgb(59, 155, 77);
+  transition: 1s;
+}
+.brand button:hover{
+  background-color: rgba(90, 224, 12, 0.864);
+  transition: 1s;
+}
+.brand-details{
+  display: flex;
+  margin-top: -20px;
+}
+
+.create button{
+  border: none;
+  background-color: rgba(197, 244, 164, 0.956);
+  color: rgb(59, 155, 77);
+  transition: 1s;
+}
+.update button{
+  border: none;
+  background-color: rgba(197, 244, 164, 0.956);
+  color: rgb(59, 155, 77);
+  transition: 1s;
+}
+.update button:hover{
+  background-color: rgba(90, 224, 12, 0.864);
+  transition: 1s;
+}
+.create button:hover{
+  background-color: rgba(90, 224, 12, 0.864);
+  transition: 1s;
+}
+.txt{
+  width: 130px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(213, 247, 203, 0.77);
+}
+.color{
+  border: none;
+  width: 25px;
+  height: 20px;
+}
+.card-container {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px; 
+  align-items: center; 
+  margin-top: 20px;
+  margin-bottom: -60px;
+  width: 100%;
+  height: 650px;
+}
+
+.card {
+  width: 90%;
+  height: 70px; /* Ensure minimum height for card */
+  padding: 10px; /* Add padding for better spacing */
+  border: 1px solid #0c0c0ca7;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #5e6f795e;
+  display: flex; /* Ensure flex layout for card-body alignment */
+  align-items: start; /* Align items vertically */
+}
+.buttons{
+  display: flex;
+}
+.btn{
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  margin-left: -3%;
+  margin-top: -13px;
+}
+.btn button{
+  width: 65px;
+  height: 25px;
+  font-size: 10px;
+  border: none;
+  background-color: rgba(186, 208, 253, 0.913);
+  color: rgb(5, 64, 190);
+  transition: 1s;
+}
+
+.btn button:hover{
+  background-color: rgb(105, 154, 245);
+  transition: 1s;
+}
+
+.card-body {
+  flex-grow: 1; /* Allow card-body to grow */
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 60px; /* Adjust margin for better alignment */
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.596);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card-text {
+  font-size: 16px;
+}
+
+fa-icon {
+  font-size: 40px;
+  color: azure;
+  margin-left: 25px;
+}
+.pagination{
+  display: flex;
+  margin-left: 5%;
+  
+}
+.pagination button{
+  background-color: rgba(252, 252, 164, 0.929);
+  border: none;
+  color: rgb(204, 182, 16);
+  transition: 1s;
+}
+.pagination button:hover{
+  background-color: rgba(252, 252, 31, 0.99);
+  transition: 1s;
+}
+.pagination span{
+  color: rgb(204, 182, 16);
+  margin-top: 10px;
+}
+.winner-div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(248, 120, 208, 0.409);
+  padding: 20px;
+  border-radius: 15px;
+  color: rgba(243, 19, 172, 0.774);
+  width: 200px;
+}
+
+button {
+  border-radius: 10px;
+  padding: 5px 10px; /* Add padding for better button appearance */
+  margin: 5px; /* Add margin for better spacing */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+button:disabled {
+  opacity: 0.5; /* Reduce opacity for disabled buttons */
+  cursor: not-allowed; /* Change cursor to not-allowed for disabled buttons */
+}
+
+@media screen and (max-width: 500px) {
+  .background{
+    width: 100%;
+    height: 750px;
+  }
+  .title h1 {
+    font-size: 40px; /* Decrease font size for smaller screens */
+  }
+  .title{
+    margin-top: -100px;
+  }
+
+  .top {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .navbar {
+    align-items: start; /* Center items horizontally */
+    
+  }
+
+  .race button, .brand button, .create button, .update button, .pagination button {
+    font-size: 12px; /* Decrease button font size for smaller screens */
+    padding: 3px 8px; /* Adjust button padding */
+  }
+
+  .card-container {
+    height: 400px; /* Allow container height to adjust based on content */
+  }
+
+  .card {
+    width: 95%; /* Adjust card width */
+    height:50px;
+  }
+ 
+  .btn button {
+    font-size: 8px; /* Decrease button font size for smaller screens */
+    padding: 2px 5px; /* Adjust button padding */
+    width: 40px;
+    height: 15px;
+    margin-left: -15px;
+  }
+  fa-icon{
+    font-size: 25px;
+    margin-left: -30px;
+  }
+  .card-title{
+    margin-top: 10px;
+  }
+  .pagination{
+    margin-top: 20px;
+  } 
+  .winner-div {
+    width: 180px; /* Adjust width for smaller screens */
+    height: 130px;
+    top: 20%; /* Adjust top position for smaller screens */
+    transform: translate(-50%, 0); /* Center horizontally for smaller screens */
+  }
+  .pagination span{
+    font-size: 12px;
+  }
+}

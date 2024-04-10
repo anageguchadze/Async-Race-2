@@ -1,0 +1,39 @@
+<section>
+  <img src="https://media.istockphoto.com/id/1210045819/vector/blue-glitter-geometric-abstract-circular-gradient-background.jpg?s=612x612&w=0&k=20&c=bceTf80ZCiF2f07cRa7NYv_XfSwRQIgSQgFl2u99PTw=" alt="">
+  <div class="navbar">
+    <button routerLink="/">GARAGE</button>
+    <button routerLink="/winners">WINNERS</button>
+  </div>
+  <div class="title">
+    <h1>Async</h1>
+    <h1>Race</h1>
+  </div>
+  <div class="title2">
+    <h1>WINNERS</h1>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>CAR NUMBER</th>
+        <th>CAR</th>
+        <th>NAME</th>
+        <th>WINS</th>
+        <th>BEST TIME (SECONDS)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let winner of winnersList">
+        <td>{{ winner.carNumber }}</td>
+        <td><fa-icon [icon]="faCarSide" [style.color]="winner.carColor"></fa-icon></td>
+        <td>{{ winner.carName }}</td>
+        <td>{{ winner.place }}</td>
+        <td>{{ winner.timeTaken.toFixed(1) }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <button (click)="prevPage()">Previous</button>
+    <span>Page {{ currentPage }} </span>
+    <button (click)="nextPage()">Next</button>
+  </div>
+</section>

@@ -1,0 +1,144 @@
+section {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
+section img {
+  width: 100%;
+  height: 800px; /* Ensure the background image covers the entire section */
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Send the background image behind other content */
+}
+
+.navbar {
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-left: 5%;
+  margin-top: 1%;
+}
+
+.navbar button {
+  background-color: rgba(239, 219, 251, 0.678);
+  border: none;
+  color: rgb(158, 103, 190);
+  border-radius: 10px; /* Add border radius for rounded corners */
+  cursor: pointer;
+  gap: 1px;
+  transition: background-color 0.5s; /* Smooth transition for button hover effect */
+}
+
+.navbar button:hover {
+  background-color: rgba(233, 179, 244, 0.917);
+  transition: 1s;
+}
+
+.title {
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 8%;
+  margin-top: -8%;
+}
+
+.title h1 {
+  text-align: center; /* Center-align the text */
+  font-size: 70px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgba(248, 120, 208, 0.939);
+}
+.title2{
+  color: rgba(248, 120, 208, 0.939);
+  margin-left: 11%;
+}
+.winners-table {
+  margin-top: 50px; /* Add margin to separate the table from the title */
+}
+
+table {
+  width: 80%; /* Adjust table width */
+  margin: 0 auto; /* Center-align the table */
+  border-collapse: collapse; /* Collapse borders for cleaner appearance */
+  height: 450px;
+}
+
+th, td {
+  color: rgba(248, 55, 187, 0.862);
+  padding: 10px; /* Add padding for better spacing */
+  text-align: center; /* Center-align table cells */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Add bottom border to table rows */
+}
+
+th {
+  background-color: rgba(239, 219, 251, 0.678); /* Add background color to table header */
+}
+
+button {
+  border-radius: 10px;
+  padding: 5px 10px; /* Add padding for better button appearance */
+  margin: 5px; /* Add margin for better spacing */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.pagination{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 5%;
+  margin-top: 30px;
+}
+.pagination button{
+  background-color: rgba(252, 252, 164, 0.929);
+  border: none;
+  color: rgb(204, 182, 16);
+  transition: 1s;
+}
+.pagination button:hover{
+  background-color: rgba(252, 252, 31, 0.99);
+  transition: 1s;
+}
+.pagination span{
+  color: rgb(204, 182, 16);
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  
+  section img{
+    height: 650px;
+  }
+  th{
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  .title{
+    margin-top: -100px;
+  }
+  .title h1 {
+    font-size: 40px; /* Decrease font size for smaller screens */
+  }
+  .title2{
+    text-align: start;
+  }
+  table{
+    width: 95%;
+    height: 470px;
+  }
+  .pagination button {
+    font-size: 12px; /* Decrease button font size for smaller screens */
+    padding: 3px 8px; /* Adjust button padding */
+  }
+  .pagination span{
+    font-size: 12px;
+  }
+  .pagination{
+    margin-top: 10px;
+  }
+}
