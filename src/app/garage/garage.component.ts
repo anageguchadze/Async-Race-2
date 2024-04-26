@@ -27,18 +27,18 @@ export class GarageComponent implements OnInit {
   faCarSide = faCarSide;
   brands: Car[] = [];
   currentPage: number = 1;
-  pageSize: number = 7; // Number of brands per page
-  loading: boolean = false; // Loading indicator
-  newBrandName: string = ''; // Brand name input
-  newBrandColor: string = '#000000'; // Color input
-  updatedBrandName: string = ''; // Updated brand name input
-  updatedBrandColor: string = '#000000'; // Updated color input
-  selectedCarIndex: number | null = null; // Index of the selected car for editing
-  moving: boolean = false; // Tracks whether the car is moving or not
+  pageSize: number = 7; 
+  loading: boolean = false; 
+  newBrandName: string = ''; 
+  newBrandColor: string = '#000000'; 
+  updatedBrandName: string = ''; 
+  updatedBrandColor: string = '#000000'; 
+  selectedCarIndex: number | null = null; 
+  moving: boolean = false; 
   finishTimes: { carName: string, time: number }[] = [];
   startTime: number = 0;
   winnerName: string | null = null;
-  winnersList: Winner[] = []; // List to store winners
+  winnersList: Winner[] = []; 
 
   constructor(private http: HttpClient, 
     private raceResultService: RaceResultService, 
@@ -66,7 +66,7 @@ export class GarageComponent implements OnInit {
         color: '#' + Math.floor(Math.random() * 16777215).toString(16)
       }));
       this.loading = false;
-      // Reset the winnerName when new brands are generated
+     
       this.winnerName = null;
     });
   }
@@ -105,14 +105,14 @@ export class GarageComponent implements OnInit {
       color: this.newBrandColor
     };
     this.brands.push(newCar);
-    // Optionally, you can clear the input fields after creating the car
+    
     this.newBrandName = '';
     this.newBrandColor = '#000000';
   }
 
   editCar(index: number): void {
     this.selectedCarIndex = index;
-    // Optionally, you can pre-fill the input fields with the selected car's data for editing
+   
     this.updatedBrandName = this.brands[index].name;
     this.updatedBrandColor = this.brands[index].color;
   }
@@ -121,7 +121,7 @@ export class GarageComponent implements OnInit {
     if (this.selectedCarIndex !== null) {
       this.brands[this.selectedCarIndex].name = this.updatedBrandName;
       this.brands[this.selectedCarIndex].color = this.updatedBrandColor;
-      // Clear the selected car index and input fields after updating
+      
       this.selectedCarIndex = null;
       this.updatedBrandName = '';
       this.updatedBrandColor = '#000000';
@@ -130,7 +130,7 @@ export class GarageComponent implements OnInit {
 
   removeCar(index: number): void {
     this.brands.splice(index, 1);
-    // Clear the selected car index after removing
+    
     this.selectedCarIndex = null;
   }
 
@@ -139,57 +139,57 @@ export class GarageComponent implements OnInit {
     return car ? car.classList.contains('car-move') : false;
   }
 
-  moveIntervals: any[] = []; // Array to store intervals for each car
+  moveIntervals: any[] = []; 
 
   startMoving(index: number): void {
     const car = document.querySelector('.card:nth-child(' + (index + 1) + ') fa-icon') as HTMLElement;
     if (car && !this.isCarMoving(index)) {
       car.classList.add('car-move');
       const storedPosition = this.currentPositions[index] || 0;
-      this.moveCar(index, storedPosition); // Pass the stored position to moveCar
+      this.moveCar(index, storedPosition); 
     }
   }
 
-  raceFinished: boolean = false; // Flag to track whether the race has finished
+  raceFinished: boolean = false; 
 
   stopMoving(index: number): void {
     const car = document.querySelector('.card:nth-child(' + (index + 1) + ') fa-icon') as HTMLElement;
   
     if (car && this.isCarMoving(index)) {
-      clearInterval(this.moveIntervals[index]); // Clear the interval
-      car.classList.remove('car-move'); // Remove the 'car-move' class to stop the animation
+      clearInterval(this.moveIntervals[index]); 
+      car.classList.remove('car-move'); 
   
       const currentPosition = this.getCurrentPosition(car);
   
-      // Check if the car reached the finish line (800px) or the adjusted maximum position
+     
       const reachedFinishLine = currentPosition >= 800;
       const reachedMaxPosition = currentPosition >= (window.innerWidth <= 500 ? 280 : 880);
   
       if (reachedFinishLine || reachedMaxPosition) {
         const finishedCarName = this.brands[index].name;
   
-        // Check if it's the first time this car finished
+        
         const isFirstFinish = !this.finishTimes.some(item => item.carName === finishedCarName);
   
         if (isFirstFinish) {
           const timeTakenSeconds = (Date.now() - this.startTime) / 1000;
           this.finishTimes.push({ carName: finishedCarName, time: timeTakenSeconds });
   
-          // Update the winnerName property with the winner's name
+         
           if (!this.winnerName) {
-            this.winnerName = finishedCarName; // Set the first winner
-            // Stop the race if all cars have finished
+            this.winnerName = finishedCarName; 
+           
             if (this.finishTimes.length === this.brands.length) {
               this.raceFinished = true;
             }
           }
   
-          // Add winner to winners list
+
           const winner: Winner = {
-            carNumber: index + 1, // Car number is index + 1
+            carNumber: index + 1, 
             carName: finishedCarName,
             timeTaken: timeTakenSeconds,
-            place: this.winnersList.length + 1, // Winning place is the current length of winners list + 1
+            place: this.winnersList.length + 1, 
             carColor: this.brands[index].color
           };
           this.winnersList.push(winner);
@@ -214,21 +214,21 @@ export class GarageComponent implements OnInit {
   }
 
   resetCars(): void {
-  // Reset each car's position to the start
+  
   this.brands.forEach((_, index) => {
     const car = document.querySelector('.card:nth-child(' + (index + 1) + ') fa-icon') as HTMLElement;
     if (car) {
       car.style.transform = 'translateX(0)';
-      this.currentPositions[index] = 0; // Reset stored position to 0
+      this.currentPositions[index] = 0; 
     }
   });
 
-  // Reset winner information and related flags
+  
   this.winnerName = null;
   this.finishTimes = [];
   this.raceFinished = false;
 
-  // Clear winners list
+  
   this.winnersList = [];
 }
 
@@ -254,36 +254,36 @@ export class GarageComponent implements OnInit {
       let maxPosition: number;
 
       if (containerWidth <= 500) {
-        distanceToMove = 280; // Adjusted distance for smaller screens
+        distanceToMove = 280; 
         maxPosition = 280;
       } else {
         distanceToMove = containerWidth - carWidth;
         maxPosition = 880;
       }
 
-      let speed = Math.floor(Math.random() * 5) + 1; // Generate random speed between 1 and 5
-      let currentPosition = startPosition; // Use the stored position as the starting point
+      let speed = Math.floor(Math.random() * 5) + 1; 
+      let currentPosition = startPosition; 
 
       this.moveIntervals[index] = setInterval(() => {
         if (currentPosition < distanceToMove && currentPosition < maxPosition) {
-          currentPosition += speed; // Adjust the movement speed based on the randomly generated speed
+          currentPosition += speed; 
           car.style.transform = 'translateX(' + currentPosition + 'px)';
         } else {
-          this.stopMoving(index); // Stop moving when reached the end or the specified maximum position
+          this.stopMoving(index); 
         }
-      }, 8 / speed); // Adjust the interval duration based on the speed for smoother movement
+      }, 8 / speed); 
     }
 }
 
 
   race(): void {
-    // Reset cars and winners list before starting the race
+    
     this.resetCars();
   
-    // Start the race timer
+    
     this.startTime = Date.now();
   
-    // Iterate through all brands and start moving each car
+    
     this.brands.forEach((_, index) => {
       this.startMoving(index);
     });
